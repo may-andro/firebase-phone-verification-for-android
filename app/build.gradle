@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+    buildToolsVersion versions.buildToolVersion
+
+    defaultConfig {
+        applicationId "com.mayandro.firebasephoneauth"
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Kotlin
+    implementation deps.kotlin.kotlinSDK
+    implementation 'androidx.core:core-ktx:1.1.0'
+
+    // Coroutine
+    implementation deps.kotlin.coroutine
+
+    // App dependencies
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.constraintlayout
+    implementation deps.androidx.recyclerview
+    implementation deps.androidx.cardview
+    implementation deps.androidx.viewpager2
+
+    // Timber
+    implementation deps.logger.timber
+
+    // design
+    implementation deps.design.material
+
+    // Architecture Components
+    implementation deps.arch.extensions
+    implementation deps.arch.viewmodel
+    kapt deps.arch.compiler
+
+    // Room
+    implementation deps.database.room
+    kapt deps.database.compiler
+
+    //Navigation
+    implementation deps.arch.navigationui
+    implementation deps.arch.navigationfragment
+
+    // Retrofit 2
+    implementation deps.network.retrofit
+    implementation deps.network.retrofitgson
+    implementation deps.network.retrofitrx
+    implementation deps.network.okhttplogger
+
+    // Glide
+    implementation deps.imageLib.glide
+
+    // Databinding compiler
+    kapt deps.binding.databinding
+
+    // Rx Plugins
+    implementation deps.rx.permissions
+
+    // JetPack Shared Preference Plugins
+    implementation deps.sharedpreferences.preference
+
+    // Dagger 2
+    implementation deps.dagger.dagger
+    implementation deps.dagger.daggerSupport
+    kapt deps.dagger.daggerCompiler
+    kapt deps.dagger.daggerProcessor
+
+    //Phone
+    implementation deps.playservicesauth.playservicesauth
+    implementation deps.playservicesauth.playservicesauthapiphone
+
+    //Firebase
+    implementation deps.firebase.auth
+    implementation deps.firebase.analytics
+}

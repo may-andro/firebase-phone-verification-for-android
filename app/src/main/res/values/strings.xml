@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FirebasePhoneAuth</string>
+
+    <string name="verify_your_number">Verify Your Number</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="phone_auth_subtitle">Please enter your phone number to verify your account</string>
+    <string name="otp_auth_subtitle">Please enter the OTP received in %1$s</string>
+    <string name="verify">Verify</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="send">send</string>
+    <string name="otp">Otp</string>
+</resources>
